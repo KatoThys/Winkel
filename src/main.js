@@ -36,6 +36,20 @@ const coordinates = [4.386124, 51.106167];
 const addressElement = document.getElementById('address');
 const loaderElement = document.getElementById('loader');
 
+const menu = document.querySelector('.menu');
+const mobileContainer = document.querySelector('.navbar__mobile-container');
+
+menu.onclick = () => {
+  menu.classList.toggle('opened');
+  menu.setAttribute('aria-expanded', menu.classList.contains('opened'));
+
+  if (menu.classList.contains('opened')) {
+    mobileContainer.style.display = 'block';
+  } else {
+    mobileContainer.style.display = 'none';
+  }
+};
+
 const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?access_token=${apiKey}`;
 
 async function getAdressFromCoordinates() {
